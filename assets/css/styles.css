@@ -1,1 +1,275 @@
-    
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #171100;
+    --sub-color: #5f5b53;
+    --background-color: #fffcf4;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+}
+
+/*==========================  Common =============================  */
+a {
+    text-decoration: none;
+}
+
+.content {
+    width: 1170px;
+    max-width: calc(100% - 48px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    min-width: 144px;
+    padding: 0px 24px;
+    border-radius: 24.5px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.857; /* 185.714% */
+    background-color: var(--main-color);
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.desc {
+    color: var(--sub-color);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.85; /* 185.714% */
+}
+
+/*==========================  Header =============================  */
+header {
+    position: sticky;
+    /* khi mà cuộn xuống quá 28px thì mới di gắn chặt thanh header lên trên cùng */
+    top: -28px;
+    padding: 36px 0px 8px;
+    background-color: var(--background-color);
+    z-index: 1;
+}
+
+header .content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* nếu chỗ này không dùng thẻ main thì có thể dùng magin-left auto cho thẻ nav để đẩy khối sang phải. */
+header .main {
+    display: flex;
+    align-items: center;
+}
+
+header .nav {
+    display: flex;
+    justify-content: space-between;
+    width: 401px;
+}
+
+header .nav .active::after {
+    content: "";
+    display: block;
+    margin-top: 3px;
+    margin-left: 21px;
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--main-color);
+}
+
+header .nav li.active a {
+    color: var(--main-color);
+    /* chữ không bị giật. nếu đổi bằng font-weight thì sẽ bị giật */
+    text-shadow: 1px 0 0 currentColor;
+}
+
+header .nav a {
+    padding: 11px 21px;
+    color: var(--sub-color);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+header .nav a:hover {
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+header .btn {
+    /* đặt line height = với height để canh giữa chữ */
+    line-height: 50px;
+    margin-left: 49px;
+    padding: 0px 16px;
+    font-size: 1.6rem;
+}
+/*==========================  Hero =============================  */
+
+.hero {
+    padding: 57px 0px 65px;
+    background-color: var(--background-color);
+}
+.hero .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* -- =============== Left ================== */
+.intro {
+    position: relative;
+    z-index: 0;
+}
+
+.intro .main-photo {
+    max-width: 470px;
+    height: 685px;
+    object-fit: cover;
+    object-position: 80%;
+    border-radius: 20px;
+    /* thẻ img là thẻ inline nên bị dư đoạn phía dưới để chừa chỗ cho chữ g p q . những chữ có chân kéo dài xuống dưới. nên chuyển
+    sang thẻ block hoặc cho đường chân line xuống dưới là ok */
+    display: block;
+    /* vertical-align: bottom; */
+}
+
+.intro .course {
+    position: absolute;
+    bottom: 48px;
+    left: 300px;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 270px;
+    height: 244px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
+}
+
+.intro .course .row {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+}
+
+.intro .icon {
+    margin-right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: none;
+    background-color: #fff9e8;
+}
+
+.course .row:nth-child(2) .icon {
+    background-color: #fcefff;
+}
+
+.course .row:nth-child(3) .icon {
+    background-color: #ebeaff;
+}
+
+.intro .collumn strong {
+    color: var(--main-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.66;
+}
+
+/* -- =============== Right ================== */
+
+.hero .body {
+    width: 470px;
+    max-width: 100%;
+}
+
+.hero .title {
+    color: var(--main-color);
+    font-family: Sen;
+    font-size: 5.8rem;
+    font-weight: 700;
+    line-height: 1.17; /* 117.241% */
+    letter-spacing: -0.116rem;
+}
+
+.hero .body .desc {
+    margin-top: 22px;
+    font-size: 1.8rem;
+    line-height: 1.66;
+}
+.hero .action {
+    display: flex;
+    margin-top: 38px;
+    margin-bottom: 48px;
+    align-items: center;
+}
+
+.hero .action .btn {
+    min-width: 180px;
+    line-height: 64px;
+    height: 64px;
+    /* 180 - 132 / 2  = 24px  132 là giá trị kích thước thật của chữ đo trong trình duyệt*/
+    padding: 0px 24px;
+    border-radius: 32px;
+    background: #ffb900;
+    font-size: 1.8rem;
+}
+
+.action .watch-video {
+    display: flex;
+    align-items: center;
+}
+
+.hero .action img {
+    margin-left: 24px;
+    width: 40px;
+    height: 40px;
+    object-fit: none;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.hero .action span {
+    margin-left: 14px;
+    color: var(--main-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.hero .stats {
+    margin-top: 8px;
+    display: flex;
+    align-items: baseline;
+}
+
+.hero .stats strong {
+    color: var(--main-color);
+    font-family: Sen;
+    font-size: 4.4rem;
+    font-weight: 700;
+}
+
+.hero .stats .desc {
+    margin-left: 15px;
+}
+
+.hero .stats .desc:nth-child(2) {
+    margin-right: 28px;
+}
